@@ -18,6 +18,36 @@
  *
  */
 
+// ATMEL ATTINY2313 (4313)
+//
+//                  +-\/-+
+//            PA2  1|    |29  VCC
+// RX   (D 0) PD0  2|    |19  PB7 (D 16)
+// TX   (D 1) PD1  3|    |18  PB6 (D 15)
+//      (D 2) PA1  4|    |17  PB5 (D 14)
+//      (D 3) PA0  5|    |16  PB4 (D 13)
+// INT0 (D 4) PD2  6|    |15  PB3 (D 12)
+// INT1 (D 5) PD3  7|    |14  PB2 (D 11)
+//      (D 6) PD4  8|    |13  PB1 (D 10)
+//     *(D 7) PD5  9|    |12  PB0 (D 9)
+//            GND 10|    |11  PD6 (D 8)
+//                  +----+
+//
+// * indicates PWM port
+
+// Pinout of firecrow
+//       TX
+//       PD1 PD2 PD4 PD6 PB1 PB4
+//   GND  1   4   6   8   10  13 
+
+//    O   O   O   O   O   O   O   O
+//    O   O   O   O   O   O   O   O
+
+//   VCC  0   5   7   9   12  14  15 
+//       PD0 PD3 PD5 PB0 PB3 PB5 PB6  
+//       RX 
+
+
 #define XBEE_BAUD 9600
 #define FIRE_TIME 500
 #define CHANNELS 11
@@ -35,19 +65,37 @@ struct Channel {
   int time;
 };
 
+
+//pin, time
+//Channel channels[] = { 
+//  {4,-1},
+//  {6,-1},
+//  {8,-1},
+//  {10,-1},
+//  {13,-1},
+//  {5,-1},
+//  {7,-1},
+//  {9,-1},
+//  {12,-1},
+//  {14,-1},
+//  {15,-1}
+//};
+
 Channel channels[] = { 
-  {4,-1},
-  {6,-1},
-  {8,-1},
+  {5, -1}, //PD3
+  {12,-1}, //PB3
+  {8, -1},
   {10,-1},
   {13,-1},
-  {5,-1},
-  {7,-1},
-  {9,-1},
-  {12,-1},
+  {4, -1},
+  {7, -1},
+  {9, -1},
+  {6, -1},
   {14,-1},
   {15,-1}
 };
+
+
 
 int c = 0;
 int i;
