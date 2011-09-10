@@ -18,6 +18,15 @@
  *
  */
 
+/*
+Flash fuses
+$ avrdude -c avrispmkII -P usb -p t4313  -U lfuse:w:0xff:m -U hfuse:w:0xdf:m -U efuse:w:0xff:m
+
+Flash firecrow
+$ avrdude -c avrispmkII -P usb -p t4313  -U flash:w:/tmp/build166268485820717316.tmp/firecrow.cpp.hex 
+
+*/
+
 // ATMEL ATTINY2313 (4313)
 //
 //                  +-\/-+
@@ -198,11 +207,13 @@ void loop() {
        if (c >= 0 && c < CHANNELS) {
          //fire
          channels[c].time = millis();
-         digitalWrite(channels[c].pin,HIGH);
-         //debug
-         //digitalWrite(DEBUG_LED,HIGH);
-         //delay(10);
-         //digitalWrite(DEBUG_LED,LOW);
+         digitalWrite(channels[c].pin,HIGH); 
+         
+       } else if (c == 254) {
+         //No-op packet
+         digitalWrite(DEBUG_LED,HIGH);
+         delay(10);
+         digitalWrite(DEBUG_LED,LOW);
        } else {
          //SOMETHING IS WRONG....
          for (int i=0; i<10; i++) {
@@ -213,7 +224,6 @@ void loop() {
            digitalWrite(DEBUG_LED,HIGH);
            delay(10);
            digitalWrite(DEBUG_LED,LOW);
-           
          } 
        }
        //no break, go to default and start over  
