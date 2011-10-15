@@ -30,13 +30,13 @@ $ avrdude -c avrispmkII -P usb -p t4313  -U flash:w:/tmp/build166268485820717316
 // ATMEL ATTINY2313 (4313)
 //
 //                  +-\/-+
-//            PA2  1|    |29  VCC
+//            PA2  1|    |20  VCC
 // RX   (D 0) PD0  2|    |19  PB7 (D 16)
 // TX   (D 1) PD1  3|    |18  PB6 (D 15)
 //      (D 2) PA1  4|    |17  PB5 (D 14)
-//      (D 3) PA0  5|    |16  PB4 (D 13)
-// INT0 (D 4) PD2  6|    |15  PB3 (D 12)
-// INT1 (D 5) PD3  7|    |14  PB2 (D 11)
+//      (D 3) PA0  5|    |16  PB4 (D 13)*
+// INT0 (D 4) PD2  6|    |15  PB3 (D 12)*
+// INT1 (D 5) PD3  7|    |14  PB2 (D 11)*
 //      (D 6) PD4  8|    |13  PB1 (D 10)
 //     *(D 7) PD5  9|    |12  PB0 (D 9)
 //            GND 10|    |11  PD6 (D 8)
@@ -44,15 +44,15 @@ $ avrdude -c avrispmkII -P usb -p t4313  -U flash:w:/tmp/build166268485820717316
 //
 // * indicates PWM port
 
-// Pinout of firecrow
+// Pinout of firecrow (ATtiny2313/4313 and arduino equivalent)
 //       TX
-//       PD1 PD2 PD4 PD6 PB1 PB4
-//   GND  1   4   6   8   10  13 
+//       PD1 PD2 PD4 PD6 PB1 PB4 PB7
+//   GND  1   4   6   8   10 *13  16
 
 //    O   O   O   O   O   O   O   O
 //    O   O   O   O   O   O   O   O
 
-//   VCC  0   5   7   9   12  14  15 
+//   VCC  0   5  *7   9  *12  14  15 
 //       PD0 PD3 PD5 PB0 PB3 PB5 PB6  
 //       RX 
 
