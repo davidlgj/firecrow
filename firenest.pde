@@ -170,7 +170,7 @@ AtCommandRequest atRequest = AtCommandRequest(atCmd);
 AtCommandResponse atResponse = AtCommandResponse();
 
 
-void setup() {
+void setupold() {
   
   //mySerial.begin(4800);
   //mySerial.println("Hello world");
@@ -225,7 +225,7 @@ void setup() {
 
 //State 3 == release, debouncing time not up
 
-void loop() {
+void loopold() {
   int val;
   int m;
   
@@ -360,11 +360,6 @@ boolean checkNDResponse() {
     }
   }
   return false;
-}
-
-void error(int code) {
-  //flash all diods once slowly then change to a binary error code representation
-  flashAll(500);
 }
 
 //flash leds once, variable time
