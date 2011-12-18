@@ -23,10 +23,10 @@ namespace PyroFyro {
       }
       
       while (1) {
-        if (Serial.available()) {
+        if (Serial1.available()) {
           switch (state) {
             case 0:
-              c = Serial.read();
+              c = Serial1.read();
               if (c == START_BYTE) {
                state++;
               }     
@@ -34,12 +34,12 @@ namespace PyroFyro {
            
             case 1: //MSB
             case 2: //LSB
-              c = Serial.read();
+              c = Serial1.read();
               state++;
             break;
            
             case 3:
-              c = Serial.read();
+              c = Serial1.read();
                 if (c == API_ID) {
                   state++;
                 } else { //not a RX packet
@@ -73,7 +73,7 @@ namespace PyroFyro {
             case 14:
            
             case 15: //options
-              c = Serial.read();
+              c = Serial1.read();
               if (c != START_BYTE) {
                 state++;
               } else {
@@ -81,7 +81,7 @@ namespace PyroFyro {
               }    
               break;
             case 16: //our data!
-              c = Serial.read();
+              c = Serial1.read();
               if (c >= 0 && c < nr_of_channels) {
                 //fire
                 channels[c].time = millis();

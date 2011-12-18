@@ -51,7 +51,7 @@ byte ordering();
 
 //main functions
 void setup() {
-  Serial.begin(9600);
+  Serial1.begin(9600);
   
   //flash debug led
   pinMode(DEBUG_LED,OUTPUT);
