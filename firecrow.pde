@@ -96,23 +96,9 @@ void loop() {
   
   switch (id) {
     case 1: {
-      flash(DEBUG_LED,20);
-    delay(20);
-      flash(DEBUG_LED,20);
-    delay(20);
-      flash(DEBUG_LED,20);
-    delay(20);
-    flash(DEBUG_LED,20);
-    delay(20);
-    flash(DEBUG_LED,20);
-    delay(20);
-    flash(DEBUG_LED,20);
-    delay(20);
-    flash(DEBUG_LED,20);
-    delay(20);
-    flash(DEBUG_LED,20);
-    delay(20);
-      
+      //ID-OK
+      digitalWrite(IDOK,HIGH);
+            
       //TODO: move declaration somehwere else
       int channels[] = {1,2,3,4}; //FIXME: proper numbers
       PyroFyro::pyrofyro(4,channels);
