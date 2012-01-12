@@ -3,15 +3,13 @@
 
 void error(int code) {
   //first signal error
-  for (int i=0; i<30; i++) {
-    flash(DEBUG_LED,10);
-    delay(10);
-  }
+  flash(DEBUG_LED,2000);
+  delay(500);
   for (int i=0; i<code; i++) {
        flash(DEBUG_LED,500);
-       delay(200);
+       delay(500);
   }
-  delay(2000);
+  delay(5000);
 }
 
 
