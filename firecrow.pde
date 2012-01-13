@@ -95,12 +95,12 @@ void loop() {
   error(id);
   
   switch (id) {
-    case 1: {
+    case 4: {
       //ID-OK
       digitalWrite(IDOK,HIGH);
             
       //TODO: move declaration somehwere else
-      int channels[] = {1,2,3,4}; //FIXME: proper numbers
+      int channels[] = {10,13,9,7};
       PyroFyro::pyrofyro(4,channels);
       break;
     }
